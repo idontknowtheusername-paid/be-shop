@@ -44,9 +44,9 @@ export const useProfiles = () => {
 
   const createProfile = async (profile: any) => {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('profiles')
-        .insert(profile as any)
+        .insert(profile)
         .select()
         .single()
 
@@ -59,9 +59,9 @@ export const useProfiles = () => {
 
   const updateProfile = async (id: string, updates: any) => {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('profiles')
-        .update(updates as any)
+        .update(updates)
         .eq('id', id)
         .select()
         .single()
@@ -147,9 +147,9 @@ export const useProducts = () => {
 
   const createProduct = async (product: any) => {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('products')
-        .insert(product as any)
+        .insert(product)
         .select()
         .single()
 
@@ -162,9 +162,9 @@ export const useProducts = () => {
 
   const updateProduct = async (id: string, updates: any) => {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('products')
-        .update(updates as any)
+        .update(updates)
         .eq('id', id)
         .select()
         .single()
