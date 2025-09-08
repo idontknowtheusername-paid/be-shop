@@ -1,0 +1,180 @@
+# Prompt Complet pour Créer “Be Shop” - Clone Jumia Nigeria
+
+## Instructions générales
+
+Créez un site e-commerce complet appelé “Be Shop” qui reproduit exactement toutes les fonctionnalités de Jumia Nigeria (jumia.com.ng), avec une identité visuelle personnalisée et Supabase comme base de données.
+Le site dois être bilingue. 
+
+## Stack technique
+
+- **Frontend** : React.js avec Next.js
+- **Base de données** : Supabase (PostgreSQL)
+- **Authentification** : Supabase Auth
+- **Paiements** : Stripe, PayPal, Pay on Delivery
+- **Storage** : Supabase Storage pour images
+- **Responsive** : Mobile-first design
+
+## Identité visuelle “Be Shop”
+
+Couleur primaire : #1E40AF (Bleu sapphire)
+	•	Couleur secondaire : #EA580C (Orange cuivre)
+	•	Couleur accent : #7C2D12 (Brun chocolat)
+	•	Fond : #F8FAFC (Blanc pur)
+	•	Texte principal : #0F172A (Noir profond)
+	•	Logo : “Be Shop” avec slogan “Benin  Elite Shopping Experience”
+
+## Structure complète du site
+
+### 1. Page d’accueil
+
+- Header avec logo, barre recherche, compte/wishlist/panier
+- Menu catégories avec dropdown
+- Carrousel banners promotionnels
+- Flash Sales avec timer
+- Grille catégories populaires
+- Sliders produits (Top Deals, Nouveautés)
+- Section marques partenaires
+- Footer complet avec liens
+
+### 2. Pages Catégories (identiques Jumia)
+
+- **Électronique** : Smartphones, TV, Audio, Ordinateurs
+- **Mode** : Hommes/Femmes/Enfants, Chaussures, Accessoires
+- **Maison & Jardin** : Meubles, Électroménager, Décoration
+- **Beauté & Santé** : Cosmétiques, Parfums, Soins
+- **Sport & Loisirs** : Équipements, Vêtements sport
+- **Alimentation** : Épicerie, Boissons, Produits frais
+
+Chaque catégorie avec filtres avancés, tri, pagination, vue grille/liste.
+
+### 3. Page Produit complète
+
+- Galerie images avec zoom
+- Informations détaillées, prix, remises
+- Options (taille, couleur, quantité)
+- Boutons : Panier, Achat immédiat, Wishlist
+- Onglets : Description, Specs, Avis clients
+- Produits similaires et recommandés
+- Q&A section
+
+### 4. Authentification Supabase
+
+- Pages : Inscription, Connexion, Mot de passe oublié
+- Dashboard utilisateur : Compte, Commandes, Wishlist, Adresses
+- Profils avec informations personnelles
+
+### 5. Panier et Checkout
+
+- Panier avec calculs automatiques
+- Process checkout 4 étapes : Adresse, Livraison, Paiement, Confirmation
+- Intégration codes promo
+- Multiple options paiement Benin
+
+### 6. Zone Admin complète
+
+- Dashboard avec statistiques
+- Gestion produits (CRUD complet)
+- Gestion commandes et statuts
+- Gestion utilisateurs et vendeurs
+- Gestion contenu et promotions
+
+### 7. Marketplace Multi-vendeur
+
+- Interface inscription vendeurs
+- Dashboard vendeur avec statistiques
+- Gestion catalogue vendeur
+- Système commissions automatique
+
+## Base de données Supabase
+
+Créez toutes les tables nécessaires : utilisateurs (profiles), produits, catégories, commandes, order_items, cart_items, wishlist, reviews, addresses, coupons, banners, vendors. Utilisez les relations et contraintes appropriées.
+
+## Fonctionnalités essentielles
+
+### Recherche et navigation
+
+- Recherche avec autocomplétion
+- Filtres multiples combinables
+- Historique recherches
+- Navigation breadcrumb
+
+### Paiements Benin 
+
+- **Pay on Delivery (COD)**
+- **Bank Transfer**
+- **Mobile Money** (MTN, Airtel)
+- **Stripe/PayPal**
+- **Buy Now Pay Later**
+
+### Notifications
+
+- Emails automatiques (commande, expédition)
+- Notifications push
+- SMS confirmations (optionnel)
+
+### Reviews et ratings
+
+- Système notes 5 étoiles
+- Reviews avec photos
+- Modération avis
+- Reviews vérifiés
+
+### Géolocalisation
+
+- Détection localisation Benin par défaut , Afrique de l’Ouest en général 
+- Calcul frais livraison par zone
+- Support principales villes
+
+## Pages obligatoires
+
+- À propos, CGU, Politique confidentialité
+- FAQ, Contact, Support client
+- Centre d’aide avec recherche
+- Suivi commandes
+- Pages marketing (Promotions, Outlet)
+
+## Optimisations techniques
+
+- Images WebP avec lazy loading
+- Cache intelligent
+- SEO complet (meta tags, sitemap)
+- PWA features
+- Optimisation mobile/connexions lentes
+- Analytics (Google Analytics 4)
+
+## Design et UX
+
+- Responsive mobile-first
+- Animations fluides
+- Loading skeletons
+- Touch-friendly (44px minimum buttons)
+- Micro-interactions
+- Dark/Light mode (optionnel)
+
+## Sécurité
+
+- Rate limiting API
+- Protection CSRF/XSS
+- Validation données
+- Session management sécurisé
+
+## Instructions livraison
+
+1. Developer le site au complet et à 100% 
+1. Intégrer Supabase dès le début
+1. Tester responsive à chaque étape
+1. Populer avec données test Benin
+1. Configurer paiements en mode
+1. Optimiser performances avant production
+1. Tester tous parcours utilisateur
+1. Documenter APIs et processus
+
+## Livrables attendus
+
+- Site web complet fonctionnel
+- Dashboard admin et vendeur
+- Documentation technique
+- Base de données configurée
+- Tests validés
+
+**IMPORTANT** : Reproduire exactement l’expérience utilisateur de Jumia Nigeria avec l’identité “Be Shop”. Toutes les fonctionnalités de Jumia doivent être présentes.
