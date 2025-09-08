@@ -46,7 +46,7 @@ export const useProfiles = () => {
     try {
       const { data, error } = await supabase
         .from('profiles')
-        .insert(profile)
+        .insert(profile as any)
         .select()
         .single()
 
@@ -61,7 +61,7 @@ export const useProfiles = () => {
     try {
       const { data, error } = await supabase
         .from('profiles')
-        .update(updates)
+        .update(updates as any)
         .eq('id', id)
         .select()
         .single()
@@ -149,7 +149,7 @@ export const useProducts = () => {
     try {
       const { data, error } = await supabase
         .from('products')
-        .insert(product)
+        .insert(product as any)
         .select()
         .single()
 
@@ -164,7 +164,7 @@ export const useProducts = () => {
     try {
       const { data, error } = await supabase
         .from('products')
-        .update(updates)
+        .update(updates as any)
         .eq('id', id)
         .select()
         .single()

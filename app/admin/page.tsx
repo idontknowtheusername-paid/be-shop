@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -149,7 +149,7 @@ export default function AdminDashboard() {
     }).format(price)
   }
 
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = (status: string): any => {
     const statusConfig = {
       pending: { color: 'bg-yellow-100 text-yellow-800', label: 'En attente' },
       processing: { color: 'bg-blue-100 text-blue-800', label: 'En cours' },
@@ -159,10 +159,10 @@ export default function AdminDashboard() {
     }
     
     const config = statusConfig[status as keyof typeof statusConfig] || statusConfig.pending
-    return <Badge className={config.color}>{config.label}</Badge>
+    return React.createElement(Badge, { className: config.color }, config.label)
   }
 
-  const getProductStatusBadge = (status: string) => {
+  const getProductStatusBadge = (status: string): any => {
     const statusConfig = {
       active: { color: 'bg-green-100 text-green-800', label: 'Actif' },
       inactive: { color: 'bg-gray-100 text-gray-800', label: 'Inactif' },
@@ -170,7 +170,7 @@ export default function AdminDashboard() {
     }
     
     const config = statusConfig[status as keyof typeof statusConfig] || statusConfig.inactive
-    return <Badge className={config.color}>{config.label}</Badge>
+    return React.createElement(Badge, { className: config.color }, config.label)
   }
 
   if (!isAdmin) {

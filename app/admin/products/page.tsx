@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -146,7 +146,7 @@ export default function AdminProductsPage() {
     }
     
     const config = statusConfig[status as keyof typeof statusConfig] || statusConfig.inactive
-    return <Badge className={config.color}>{config.label}</Badge>
+    return React.createElement(Badge, { className: config.color }, config.label)
   }
 
   const filteredProducts = products.filter(product => {
