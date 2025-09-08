@@ -1,9 +1,31 @@
 import { supabase } from '@/lib/supabase'
-import type { Database } from '@/lib/supabase'
 
-type CartItem = Database['public']['Tables']['cart_items']['Row']
-type CartItemInsert = Database['public']['Tables']['cart_items']['Insert']
-type CartItemUpdate = Database['public']['Tables']['cart_items']['Update']
+type CartItem = {
+  id: string
+  user_id: string
+  product_id: string
+  quantity: number
+  created_at: string
+  updated_at: string
+}
+
+type CartItemInsert = {
+  id?: string
+  user_id: string
+  product_id: string
+  quantity: number
+  created_at?: string
+  updated_at?: string
+}
+
+type CartItemUpdate = {
+  id?: string
+  user_id?: string
+  product_id?: string
+  quantity?: number
+  created_at?: string
+  updated_at?: string
+}
 
 export interface CartItemWithProduct extends CartItem {
   products: {
@@ -83,7 +105,7 @@ class CartService {
         return this.updateCartItem(existingItem.id, { quantity: newQuantity })
       } else {
         // Créer un nouvel élément
-        const { data, error } = await supabase
+        const { data, error } = await (supabase as any)
           .from('cart_items')
           .insert(itemData)
           .select()
@@ -110,7 +132,7 @@ class CartService {
     updates: CartItemUpdate
   ): Promise<{ data: CartItem | null; error: string | null }> {
     try {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('cart_items')
         .update(updates)
         .eq('id', itemId)
@@ -134,7 +156,7 @@ class CartService {
   // Supprimer un élément du panier
   async removeFromCart(itemId: string): Promise<{ error: string | null }> {
     try {
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from('cart_items')
         .delete()
         .eq('id', itemId)
@@ -152,7 +174,7 @@ class CartService {
   // Vider le panier d'un utilisateur
   async clearCart(userId: string): Promise<{ error: string | null }> {
     try {
-      const { error } = await supabase
+      const { error } = await (supabase as any)
         .from('cart_items')
         .delete()
         .eq('user_id', userId)
