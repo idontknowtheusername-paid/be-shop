@@ -42,7 +42,7 @@ export const useProfiles = () => {
     }
   }
 
-  const createProfile = async (profile: Database['public']['Tables']['profiles']['Insert']) => {
+  const createProfile = async (profile: any) => {
     try {
       const { data, error } = await supabase
         .from('profiles')
@@ -57,7 +57,7 @@ export const useProfiles = () => {
     }
   }
 
-  const updateProfile = async (id: string, updates: Database['public']['Tables']['profiles']['Update']) => {
+  const updateProfile = async (id: string, updates: any) => {
     try {
       const { data, error } = await supabase
         .from('profiles')
@@ -145,7 +145,7 @@ export const useProducts = () => {
     }
   }
 
-  const createProduct = async (product: Database['public']['Tables']['products']['Insert']) => {
+  const createProduct = async (product: any) => {
     try {
       const { data, error } = await supabase
         .from('products')
@@ -160,7 +160,7 @@ export const useProducts = () => {
     }
   }
 
-  const updateProduct = async (id: string, updates: Database['public']['Tables']['products']['Update']) => {
+  const updateProduct = async (id: string, updates: any) => {
     try {
       const { data, error } = await supabase
         .from('products')
