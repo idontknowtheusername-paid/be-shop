@@ -77,7 +77,7 @@ class AuthService {
           currency: 'XOF',
         }
 
-        const { data: profile, error: profileError } = await supabase
+        const { data: profile, error: profileError } = await (supabase as any)
           .from('profiles')
           .insert(profileData)
           .select()
@@ -197,7 +197,7 @@ class AuthService {
   // Mettre à jour le profil utilisateur
   async updateProfile(userId: string, data: UpdateProfileData): Promise<{ user: AuthUser | null; error: string | null }> {
     try {
-      const { data: profile, error } = await supabase
+      const { data: profile, error } = await (supabase as any)
         .from('profiles')
         .update(data)
         .eq('id', userId)
