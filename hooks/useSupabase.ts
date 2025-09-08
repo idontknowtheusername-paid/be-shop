@@ -92,7 +92,7 @@ export const useProducts = () => {
     featured?: boolean
     limit?: number
     offset?: number
-  }) => {
+  }): Promise<Product[] | null> => {
     try {
       setLoading(true)
       let query = supabase
@@ -120,8 +120,10 @@ export const useProducts = () => {
 
       if (error) throw error
       setData(data)
+      return data
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Une erreur est survenue')
+      return null
     } finally {
       setLoading(false)
     }
