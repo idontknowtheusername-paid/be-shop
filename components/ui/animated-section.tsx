@@ -11,7 +11,6 @@ interface AnimatedSectionProps {
   duration?: number;
   distance?: number;
   once?: boolean;
-  threshold?: number;
 }
 
 const AnimatedSection: React.FC<AnimatedSectionProps> = ({
@@ -21,11 +20,10 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   direction = 'up',
   duration = 0.6,
   distance = 50,
-  once = true,
-  threshold = 0.1
+  once = true
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once, threshold });
+  const isInView = useInView(ref, { once });
   const controls = useAnimation();
 
   useEffect(() => {
