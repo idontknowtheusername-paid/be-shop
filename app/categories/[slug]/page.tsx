@@ -3,6 +3,18 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { useCategories, useProducts } from '@/hooks/useSupabase'
+
+// Fonction requise pour l'export statique
+export async function generateStaticParams() {
+  // Retourner des slugs de catégories statiques pour l'export
+  return [
+    { slug: 'electronics' },
+    { slug: 'clothing' },
+    { slug: 'home' },
+    { slug: 'books' },
+    { slug: 'sports' },
+  ]
+}
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'

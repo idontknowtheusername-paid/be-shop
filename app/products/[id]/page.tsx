@@ -3,6 +3,18 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'next/navigation'
 import { useProducts } from '@/hooks/useSupabase'
+
+// Fonction requise pour l'export statique
+export async function generateStaticParams() {
+  // Retourner des IDs de produits statiques pour l'export
+  return [
+    { id: '1' },
+    { id: '2' },
+    { id: '3' },
+    { id: '4' },
+    { id: '5' },
+  ]
+}
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
