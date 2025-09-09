@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
-import { useProducts } from '@/hooks/useSupabase'
+import React from 'react'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import ProductPageClient from './ProductPageClient'
 
 // Fonction requise pour l'export statique
 export async function generateStaticParams() {
@@ -12,6 +13,24 @@ export async function generateStaticParams() {
     { id: '4' },
     { id: '5' },
   ]
+}
+
+interface ProductPageProps {
+  params: {
+    id: string
+  }
+}
+
+export default function ProductPage({ params }: ProductPageProps) {
+  const { id } = params
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      <ProductPageClient id={id} />
+      <Footer />
+    </div>
+  )
 }
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'

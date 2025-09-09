@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'next/navigation'
-import { useCategories, useProducts } from '@/hooks/useSupabase'
+import React from 'react'
+import { notFound } from 'next/navigation'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import CategoryPageClient from './CategoryPageClient'
 
 // Fonction requise pour l'export statique
 export async function generateStaticParams() {
@@ -12,6 +14,24 @@ export async function generateStaticParams() {
     { slug: 'books' },
     { slug: 'sports' },
   ]
+}
+
+interface CategoryPageProps {
+  params: {
+    slug: string
+  }
+}
+
+export default function CategoryPage({ params }: CategoryPageProps) {
+  const { slug } = params
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      <CategoryPageClient slug={slug} />
+      <Footer />
+    </div>
+  )
 }
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
